@@ -12,6 +12,30 @@ const router = new Router();
 app.use(router.routes());
 app.use(router.allowedMethods());
 
+interface Book {
+    id: string;
+    title: string;
+    author: string;
+}
+
+let books: Book[] = [
+    {
+        id: "1", 
+        title: "Book Two",
+        author: "One",
+    },
+    {
+        id: "2", 
+        title: "Book Two",
+        author: "One",
+    },
+    {
+        id: "3", 
+        title: "Book Two",
+        author: "One",
+    },
+]
+
 router.get('/',(context) => {
     context.response.body = "Hello ~~~";
 })
