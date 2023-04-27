@@ -39,6 +39,9 @@ let books: Book[] = [
 router.get('/',(context) => {
     context.response.body = "Hello ~~~";
 })
+    .get("/books", (context) => {
+        context.response.body = books;
+    });
 
 console.log(`port 5000`);
 await app.listen({ port : 5000 });
