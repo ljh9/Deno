@@ -41,6 +41,16 @@ router.get('/',(context) => {
 })
     .get("/books", (context) => {
         context.response.body = books;
+    })
+    .post("/book", async (context) => {
+        const body = await context.request.body();
+
+        if(!context.request.hasBody) {
+            context.response.status = 400
+            context.response.body = "no data"
+        } else {
+            
+        }
     });
 
 console.log(`port 5000`);
