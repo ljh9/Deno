@@ -4,6 +4,7 @@
 
 
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { v4 } from "https://deno.land/std/uuid/mod.ts";
 
 const app = new Application();
 
@@ -49,7 +50,11 @@ router.get('/',(context) => {
             context.response.status = 400
             context.response.body = "no data"
         } else {
-            
+            const book : Book = body.value;
+            book.id = v4.generate();
+            books.push(book)
+            context.response.status = 201
+            context.response.body = book
         }
     });
 
