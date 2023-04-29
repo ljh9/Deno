@@ -56,7 +56,17 @@ router.get('/',(context) => {
             context.response.status = 201
             context.response.body = book
         }
-    });
+    })
+    .get("/book/:id", async(context) => {
+        const book: Book | undefined = books.find((b) => b.id === context.params.id)
+        if(book) { 
+            context.response.body = book;
+            context.response.status = 200;
+        } else {
+            context.response.body = "못찾음";
+            context.response.status = 404;
+        }
+    })
 
 console.log(`port 5000`);
 await app.listen({ port : 5000 });
