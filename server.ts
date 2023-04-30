@@ -5,6 +5,7 @@
 
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
+import { Book } from "./types.ts";
 
 const app = new Application();
 
@@ -13,11 +14,7 @@ const router = new Router();
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-interface Book {
-    id: string;
-    title: string;
-    author: string;
-}
+
 
 let books: Book[] = [
     {
