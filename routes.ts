@@ -22,9 +22,13 @@ let books: Book[] = [
     },
 ]
 
-router.get('/',(context) => {
+router.get('/',
+//
+(context) => {
     context.response.body = "Hello ~~~";
-})
+}
+//
+)
     .get("/books", (context) => {
         context.response.body = books;
     })
